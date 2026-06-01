@@ -54,7 +54,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center 30%;
     filter: brightness(0.45);
   }
 
@@ -215,7 +215,7 @@
     max-width: 380px;
     margin: 0 auto;
     display: block;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(139,0,0,0.15);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(139,0,0,0.2);
   }
 
   .book-title {
@@ -284,29 +284,26 @@
     transform: translateY(-2px);
   }
 
-  /* ATMOSPHERE */
+  /* ATMOSPHERE — foto orizzontale full width */
   .atmosphere {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
   }
 
   .atm-img {
     width: 100%;
-    height: 55vh;
-    min-height: 350px;
+    height: 100%;
     object-fit: cover;
-    filter: brightness(0.65) contrast(1.1);
+    object-position: center center;
+    filter: brightness(0.6) contrast(1.1);
     display: block;
     transition: filter 0.5s ease;
   }
 
-  .atm-img:hover { filter: brightness(0.8) contrast(1.1); }
-
-  .atm-img.full-width {
-    grid-column: 1 / -1;
-    height: 50vh;
-    object-position: center 30%;
-  }
+  .atm-img:hover { filter: brightness(0.75) contrast(1.1); }
 
   /* SOCIAL */
   .social-section {
@@ -404,9 +401,7 @@
     .manifesto-img { height: 60vw; }
     .manifesto-text { padding: 3rem 2rem; }
     .book-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .atmosphere { grid-template-columns: 1fr; }
-    .atm-img { height: 60vw; }
-    .atm-img.full-width { height: 60vw; grid-column: 1; }
+    .atmosphere { height: 50vw; }
     .hero-content { padding: 3rem 2rem; }
     footer { flex-direction: column; text-align: center; }
     .social-links { gap: 2rem; }
@@ -415,9 +410,9 @@
 </head>
 <body>
 
-<!-- HERO: foto 4 — lei sul telefono, lui per terra -->
+<!-- HERO: 17.png — lei comanda, lui pulisce -->
 <section class="hero">
-  <img class="hero-img" src="4.jpg" alt="James Noire">
+  <img class="hero-img" src="17.png" alt="James Noire">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Dark Psychological Erotic Fiction</p>
@@ -427,7 +422,7 @@
   <p class="hero-scroll">Scroll</p>
 </section>
 
-<!-- MANIFESTO: foto 1 — donna stivali -->
+<!-- MANIFESTO: 1.jpg — donna stivali -->
 <section class="manifesto">
   <img class="manifesto-img" src="1.jpg" alt="">
   <div class="manifesto-text">
@@ -448,10 +443,10 @@
   </div>
 </section>
 
-<!-- BOOK: foto 2 — mockup 3D -->
+<!-- BOOK: 8.png — cover piatta -->
 <section class="book-section">
   <div class="book-inner">
-    <img class="book-img reveal" src="2.jpg" alt="RULES — The Descent by James Noire">
+    <img class="book-img reveal" src="8.png" alt="RULES — The Descent by James Noire">
     <div class="book-text">
       <span class="section-tag reveal">The RULES Series — Book 1</span>
       <h2 class="book-title reveal">RULES</h2>
@@ -466,11 +461,9 @@
   </div>
 </section>
 
-<!-- ATMOSPHERE: foto 5, 6 affiancate + foto 3 James a NY full width -->
+<!-- ATMOSPHERE: 11.png — hotel, lei sul letto full width -->
 <section class="atmosphere">
-  <img class="atm-img" src="5.png" alt="">
-  <img class="atm-img" src="6.png" alt="">
-  <img class="atm-img full-width" src="3.jpg" alt="">
+  <img class="atm-img" src="11.png" alt="">
 </section>
 
 <!-- SOCIAL -->
