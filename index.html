@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Noire — Author</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050505;
+    --deep: #0c0c0c;
+    --red: #8b0000;
+    --red-light: #b30000;
+    --white: #f0ece4;
+    --grey: #c0bab2;
+    --muted: #6b6560;
+    --border: #1f1c1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(0.5);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0.1) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 3rem;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    color: var(--red-light);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-name span {
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 300;
+    color: var(--grey);
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: var(--muted);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MANIFESTO */
+  .manifesto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+
+  .manifesto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(1.1);
+    display: block;
+  }
+
+  .manifesto-text {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--deep);
+  }
+
+  .section-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.5em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
+
+  .manifesto-opening {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .manifesto-opening em {
+    color: var(--red);
+    font-style: normal;
+  }
+
+  .manifesto-body {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    font-weight: 300;
+    line-height: 1.95;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+  }
+
+  .manifesto-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--white);
+    border-left: 3px solid var(--red);
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+
+  /* BOOK */
+  .book-section {
+    padding: 7rem 3rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .book-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .book-img {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(139,0,0,0.15);
+  }
+
+  .book-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--red-light);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .book-desc {
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
+    font-weight: 300;
+    line-height: 1.95;
+    color: var(--grey);
+    margin-bottom: 2.5rem;
+  }
+
+  .ku-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .ku-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cta {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    background: var(--red);
+    padding: 1rem 3rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .cta:hover {
+    background: var(--red-light);
+    transform: translateY(-2px);
+  }
+
+  /* ATMOSPHERE — 3 foto */
+  .atmosphere {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .atm-img {
+    width: 100%;
+    height: 55vh;
+    min-height: 350px;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.1);
+    display: block;
+    transition: filter 0.5s ease;
+  }
+
+  .atm-img:hover { filter: brightness(0.8) contrast(1.1); }
+
+  .atm-img.full-width {
+    grid-column: 1 / -1;
+    height: 50vh;
+  }
+
+  /* SOCIAL */
+  .social-section {
+    padding: 7rem 3rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .social-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .social-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--muted);
+    margin-bottom: 3.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .social-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--red);
+    transition: width 0.3s ease;
+  }
+
+  .social-link:hover { color: var(--white); }
+  .social-link:hover::after { width: 100%; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .footer-name span { color: var(--red); }
+
+  .footer-copy {
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .manifesto { grid-template-columns: 1fr; }
+    .manifesto-img { height: 60vw; }
+    .manifesto-text { padding: 3rem 2rem; }
+    .book-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .atmosphere { grid-template-columns: 1fr; }
+    .atm-img { height: 60vw; }
+    .atm-img.full-width { height: 60vw; grid-column: 1; }
+    .hero-content { padding: 3rem 2rem; }
+    footer { flex-direction: column; text-align: center; }
+    .social-links { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO: James di spalle a New York -->
+<section class="hero">
+  <img class="hero-img" src="unnamed.jpg" alt="James Noire">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Dark Psychological Erotic Fiction</p>
+    <h1 class="hero-name">James<span>Noire</span></h1>
+    <p class="hero-tagline">Be sure you want to start.</p>
+  </div>
+  <p class="hero-scroll">Scroll</p>
+</section>
+
+<!-- MANIFESTO: donna elegante stivali -->
+<section class="manifesto">
+  <img class="manifesto-img" src="1000118280__1_.png" alt="">
+  <div class="manifesto-text">
+    <span class="section-tag reveal">The Voice</span>
+    <h2 class="manifesto-opening reveal">
+      James Noire doesn't write erotica.<br>
+      He writes about the moment a man stops <em>fighting himself.</em>
+    </h2>
+    <p class="manifesto-body reveal">
+      His stories are for those who already know this territory from the inside. For those who have carried something unnamed for years — something that only surfaces at night, when the masks get too heavy to hold.
+    </p>
+    <blockquote class="manifesto-quote reveal">
+      He descends.<br>She rises.
+    </blockquote>
+    <p class="manifesto-body reveal">
+      Neither one is the same person by the last page. This is a love story in the truest sense: two people who make each other more fully themselves.
+    </p>
+  </div>
+</section>
+
+<!-- BOOK: mockup 3D -->
+<section class="book-section">
+  <div class="book-inner">
+    <img class="book-img reveal" src="James_ebook_3d_Mockup__1_.jpg" alt="RULES — The Descent by James Noire">
+    <div class="book-text">
+      <span class="section-tag reveal">The RULES Series — Book 1</span>
+      <h2 class="book-title reveal">RULES</h2>
+      <p class="book-subtitle reveal">The Descent</p>
+      <p class="book-desc reveal">
+        James has known, since he was a boy, exactly what he is. He carries no illusions. He sees the trap closing around him, understands every step of the mechanism, and still moves forward. Not because he can't stop. Because he doesn't want to.<br><br>
+        What he offers Jennifer is not surrender in the weak sense of the word. It is something rarer: a complete, conscious gift of himself.
+      </p>
+      <div class="ku-tag reveal">Free with Kindle Unlimited</div><br><br>
+      <a href="https://amazon.com/author/jamesnoire" target="_blank" class="cta reveal">Read on Amazon →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ATMOSPHERE: 3 foto dinamica -->
+<section class="atmosphere">
+  <img class="atm-img" src="Screenshot_20260402_135903_Google.jpg" alt="">
+  <img class="atm-img" src="1000123051.png" alt="">
+  <img class="atm-img full-width" src="file_0000000051907243928c0b27fc58f891.png" alt="">
+</section>
+
+<!-- SOCIAL -->
+<section class="social-section">
+  <h2 class="social-title reveal">Impossible to Come Back</h2>
+  <p class="social-sub reveal">Dark fiction. Raw desire. No apologies.</p>
+  <div class="social-links">
+    <a href="https://instagram.com/james_noire_author" target="_blank" class="social-link reveal">Instagram</a>
+    <a href="https://amazon.com/author/jamesnoire" target="_blank" class="social-link reveal">Amazon</a>
+    <a href="https://tiktok.com/@james.noire" target="_blank" class="social-link reveal">TikTok</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">James <span>Noire</span></p>
+  <p class="footer-copy">© 2026 — All rights reserved</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
