@@ -55,7 +55,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    filter: brightness(0.5);
+    filter: brightness(0.45);
   }
 
   .hero-overlay {
@@ -138,6 +138,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     filter: brightness(0.7) contrast(1.1);
     display: block;
   }
@@ -283,11 +284,10 @@
     transform: translateY(-2px);
   }
 
-  /* ATMOSPHERE — 3 foto */
+  /* ATMOSPHERE */
   .atmosphere {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
   }
 
   .atm-img {
@@ -305,6 +305,7 @@
   .atm-img.full-width {
     grid-column: 1 / -1;
     height: 50vh;
+    object-position: center 30%;
   }
 
   /* SOCIAL */
@@ -414,9 +415,9 @@
 </head>
 <body>
 
-<!-- HERO: James di spalle a New York -->
+<!-- HERO: foto 4 — lei sul telefono, lui per terra -->
 <section class="hero">
-  <img class="hero-img" src="unnamed.jpg" alt="James Noire">
+  <img class="hero-img" src="4.jpg" alt="James Noire">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Dark Psychological Erotic Fiction</p>
@@ -426,9 +427,9 @@
   <p class="hero-scroll">Scroll</p>
 </section>
 
-<!-- MANIFESTO: donna elegante stivali -->
+<!-- MANIFESTO: foto 1 — donna stivali -->
 <section class="manifesto">
-  <img class="manifesto-img" src="1000118280__1_.png" alt="">
+  <img class="manifesto-img" src="1.jpg" alt="">
   <div class="manifesto-text">
     <span class="section-tag reveal">The Voice</span>
     <h2 class="manifesto-opening reveal">
@@ -447,10 +448,10 @@
   </div>
 </section>
 
-<!-- BOOK: mockup 3D -->
+<!-- BOOK: foto 2 — mockup 3D -->
 <section class="book-section">
   <div class="book-inner">
-    <img class="book-img reveal" src="James_ebook_3d_Mockup__1_.jpg" alt="RULES — The Descent by James Noire">
+    <img class="book-img reveal" src="2.jpg" alt="RULES — The Descent by James Noire">
     <div class="book-text">
       <span class="section-tag reveal">The RULES Series — Book 1</span>
       <h2 class="book-title reveal">RULES</h2>
@@ -465,11 +466,11 @@
   </div>
 </section>
 
-<!-- ATMOSPHERE: 3 foto dinamica -->
+<!-- ATMOSPHERE: foto 5, 6 affiancate + foto 3 James a NY full width -->
 <section class="atmosphere">
-  <img class="atm-img" src="Screenshot_20260402_135903_Google.jpg" alt="">
-  <img class="atm-img" src="1000123051.png" alt="">
-  <img class="atm-img full-width" src="file_0000000051907243928c0b27fc58f891.png" alt="">
+  <img class="atm-img" src="5.png" alt="">
+  <img class="atm-img" src="6.png" alt="">
+  <img class="atm-img full-width" src="3.jpg" alt="">
 </section>
 
 <!-- SOCIAL -->
