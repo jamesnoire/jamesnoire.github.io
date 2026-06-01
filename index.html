@@ -490,5 +490,74 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
+
+<!-- HEARTBEAT BUTTON -->
+<style>
+  .heartbeat-btn {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 9998;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    filter: drop-shadow(0 0 6px rgba(139,0,0,0.5));
+  }
+  .heartbeat-btn:hover { opacity: 0.9; transform: scale(1.2); }
+  .heartbeat-btn.beating {
+    opacity: 1;
+    animation: heartpulse 1s ease infinite;
+  }
+  @keyframes heartpulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+</style>
+
+<button class="heartbeat-btn" id="heartBtn" title="Play heartbeat">♥</button>
+
+<script>
+  const heartBtn = document.getElementById('heartBtn');
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let beating = false;
+  let beatInterval = null;
+
+  function playBeat() {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.frequency.setValueAtTime(60, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(30, audioCtx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.8, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+    osc.start(audioCtx.currentTime);
+    osc.stop(audioCtx.currentTime + 0.3);
+  }
+
+  function startBeating() {
+    playBeat();
+    setTimeout(playBeat, 200);
+    beatInterval = setInterval(() => {
+      playBeat();
+      setTimeout(playBeat, 200);
+    }, 900);
+  }
+
+  heartBtn.addEventListener('click', () => {
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    beating = !beating;
+    if (beating) {
+      heartBtn.classList.add('beating');
+      startBeating();
+    } else {
+      heartBtn.classList.remove('beating');
+      clearInterval(beatInterval);
+    }
+  });
+</script>
 </body>
 </html>
