@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-H9WJ336CWR');
 </script>
 <meta charset="UTF-8">
@@ -25,386 +24,55 @@
     --muted: #6b6560;
     --border: #1f1c1a;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.3;
-    mix-blend-mode: overlay;
-  }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 600px;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .hero-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%;
-    filter: brightness(0.45);
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0.1) 100%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 4rem 3rem;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.5em;
-    color: var(--red-light);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.3s forwards;
-  }
-
-  .hero-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(5rem, 15vw, 11rem);
-    line-height: 0.9;
-    letter-spacing: 0.03em;
-    color: var(--white);
-    opacity: 0;
-    animation: fadeUp 1s ease 0.5s forwards;
-  }
-
-  .hero-name span {
-    color: var(--red);
-    display: block;
-  }
-
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    font-weight: 300;
-    color: var(--grey);
-    margin-top: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.7s forwards;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2rem;
-    right: 3rem;
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.4em;
-    color: var(--muted);
-    text-transform: uppercase;
-    writing-mode: vertical-rl;
-    opacity: 0;
-    animation: fadeUp 1s ease 1.2s forwards;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* MANIFESTO */
-  .manifesto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 80vh;
-  }
-
-  .manifesto-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    filter: brightness(0.7) contrast(1.1);
-    display: block;
-  }
-
-  .manifesto-text {
-    padding: 5rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--deep);
-  }
-
-  .section-tag {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.5em;
-    color: var(--red);
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
-    display: block;
-  }
-
-  .manifesto-opening {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 2rem;
-    letter-spacing: 0.02em;
-  }
-
-  .manifesto-opening em {
-    color: var(--red);
-    font-style: normal;
-  }
-
-  .manifesto-body {
-    font-size: clamp(1rem, 1.6vw, 1.15rem);
-    font-weight: 300;
-    line-height: 1.95;
-    color: var(--grey);
-    margin-bottom: 1.5rem;
-  }
-
-  .manifesto-quote {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    color: var(--white);
-    border-left: 3px solid var(--red);
-    padding-left: 1.5rem;
-    margin: 2.5rem 0;
-    line-height: 1.2;
-    letter-spacing: 0.03em;
-  }
-
-  /* BOOK */
-  .book-section {
-    padding: 7rem 3rem;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .book-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .book-img {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(139,0,0,0.2);
-  }
-
-  .book-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 0.9;
-    color: var(--white);
-    letter-spacing: 0.03em;
-    margin-bottom: 0.5rem;
-  }
-
-  .book-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--red-light);
-    font-weight: 300;
-    margin-bottom: 2.5rem;
-  }
-
-  .book-desc {
-    font-size: clamp(1rem, 1.6vw, 1.1rem);
-    font-weight: 300;
-    line-height: 1.95;
-    color: var(--grey);
-    margin-bottom: 2.5rem;
-  }
-
-  .ku-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    padding: 0.6rem 1.2rem;
-    margin-bottom: 2.5rem;
-    text-transform: uppercase;
-  }
-
-  .ku-tag::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .cta {
-    display: inline-block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
-    color: var(--white);
-    background: var(--red);
-    padding: 1rem 3rem;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-
-  .cta:hover {
-    background: var(--red-light);
-    transform: translateY(-2px);
-  }
-
-  /* ATMOSPHERE — foto orizzontale full width */
-  .atmosphere {
-    width: 100%;
-    height: 70vh;
-    min-height: 400px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .atm-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    filter: brightness(0.6) contrast(1.1);
-    display: block;
-    transition: filter 0.5s ease;
-  }
-
+  body { background: var(--black); color: var(--white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+  body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.3; mix-blend-mode: overlay; }
+  .hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.45); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0.1) 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 4rem 3rem; width: 100%; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.5em; color: var(--red-light); text-transform: uppercase; margin-bottom: 1rem; opacity: 0; animation: fadeUp 1s ease 0.3s forwards; }
+  .hero-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 15vw, 11rem); line-height: 0.9; letter-spacing: 0.03em; color: var(--white); opacity: 0; animation: fadeUp 1s ease 0.5s forwards; }
+  .hero-name span { color: var(--red); display: block; }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 300; color: var(--grey); margin-top: 1.5rem; opacity: 0; animation: fadeUp 1s ease 0.7s forwards; }
+  .hero-scroll { position: absolute; bottom: 2rem; right: 3rem; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.4em; color: var(--muted); text-transform: uppercase; writing-mode: vertical-rl; opacity: 0; animation: fadeUp 1s ease 1.2s forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+  .manifesto { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+  .manifesto-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: brightness(0.7) contrast(1.1); display: block; }
+  .manifesto-text { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--deep); }
+  .section-tag { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.5em; color: var(--red); text-transform: uppercase; margin-bottom: 2.5rem; display: block; }
+  .manifesto-opening { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.1; color: var(--white); margin-bottom: 2rem; letter-spacing: 0.02em; }
+  .manifesto-opening em { color: var(--red); font-style: normal; }
+  .manifesto-body { font-size: clamp(1rem, 1.6vw, 1.15rem); font-weight: 300; line-height: 1.95; color: var(--grey); margin-bottom: 1.5rem; }
+  .manifesto-quote { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--white); border-left: 3px solid var(--red); padding-left: 1.5rem; margin: 2.5rem 0; line-height: 1.2; letter-spacing: 0.03em; }
+  .book-section { padding: 7rem 3rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .book-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .book-img { width: 100%; max-width: 380px; margin: 0 auto; display: block; box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(139,0,0,0.2); }
+  .book-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 6rem); line-height: 0.9; color: var(--white); letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+  .book-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--red-light); font-weight: 300; margin-bottom: 2.5rem; }
+  .book-desc { font-size: clamp(1rem, 1.6vw, 1.1rem); font-weight: 300; line-height: 1.95; color: var(--grey); margin-bottom: 2.5rem; }
+  .ku-tag { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--muted); border: 1px solid var(--border); padding: 0.6rem 1.2rem; margin-bottom: 2.5rem; text-transform: uppercase; }
+  .ku-tag::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+  .cta { display: inline-block; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.15em; color: var(--white); background: var(--red); padding: 1rem 3rem; text-decoration: none; transition: background 0.3s ease, transform 0.2s ease; }
+  .cta:hover { background: var(--red-light); transform: translateY(-2px); }
+  .atmosphere { width: 100%; height: 70vh; min-height: 400px; overflow: hidden; position: relative; }
+  .atm-img { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: brightness(0.6) contrast(1.1); display: block; transition: filter 0.5s ease; }
   .atm-img:hover { filter: brightness(0.75) contrast(1.1); }
-
-  /* SOCIAL */
-  .social-section {
-    padding: 7rem 3rem;
-    text-align: center;
-    border-top: 1px solid var(--border);
-  }
-
-  .social-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--white);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
-
-  .social-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--muted);
-    margin-bottom: 3.5rem;
-  }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-  }
-
-  .social-link {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--grey);
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 4px;
-    transition: color 0.3s ease;
-  }
-
-  .social-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 1px;
-    background: var(--red);
-    transition: width 0.3s ease;
-  }
-
+  .social-section { padding: 7rem 3rem; text-align: center; border-top: 1px solid var(--border); }
+  .social-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .social-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1rem, 2vw, 1.25rem); color: var(--muted); margin-bottom: 3.5rem; }
+  .social-links { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; }
+  .social-link { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--grey); text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s ease; }
+  .social-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--red); transition: width 0.3s ease; }
   .social-link:hover { color: var(--white); }
   .social-link:hover::after { width: 100%; }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
+  footer { border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: var(--muted); }
   .footer-name span { color: var(--red); }
-
-  .footer-copy {
-    font-family: 'Cinzel', serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.3em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  /* REVEAL */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
+  .footer-copy { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--muted); text-transform: uppercase; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* MOBILE */
   @media (max-width: 768px) {
     .manifesto { grid-template-columns: 1fr; }
     .manifesto-img { height: 60vw; }
@@ -415,11 +83,36 @@
     footer { flex-direction: column; text-align: center; }
     .social-links { gap: 2rem; }
   }
+
+  /* HEARTBEAT BUTTON — DORATO */
+  .heartbeat-btn {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9998;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    opacity: 1;
+    color: #D4AF37;
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.7));
+    animation: heartpulse 1.4s ease infinite;
+  }
+  .heartbeat-btn:hover { transform: scale(1.2); }
+  .heartbeat-btn.beating {
+    animation: heartpulse 0.9s ease infinite;
+    filter: drop-shadow(0 0 18px rgba(212,175,55,1));
+  }
+  @keyframes heartpulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.35); }
+  }
 </style>
 </head>
 <body>
 
-<!-- HERO: 17.png — lei comanda, lui pulisce -->
 <section class="hero">
   <img class="hero-img" src="17.png" alt="James Noire">
   <div class="hero-overlay"></div>
@@ -431,7 +124,6 @@
   <p class="hero-scroll">Scroll</p>
 </section>
 
-<!-- MANIFESTO: 1.jpg — donna stivali -->
 <section class="manifesto">
   <img class="manifesto-img" src="14.png" alt="">
   <div class="manifesto-text">
@@ -440,19 +132,12 @@
       James Noire doesn't write erotica.<br>
       He writes about the moment a man stops <em>fighting himself.</em>
     </h2>
-    <p class="manifesto-body reveal">
-      His stories are for those who already know this territory from the inside. For those who have carried something unnamed for years — something that only surfaces at night, when the masks get too heavy to hold.
-    </p>
-    <blockquote class="manifesto-quote reveal">
-      He descends.<br>She rises.
-    </blockquote>
-    <p class="manifesto-body reveal">
-      Neither one is the same person by the last page. This is a love story in the truest sense: two people who make each other more fully themselves.
-    </p>
+    <p class="manifesto-body reveal">His stories are for those who already know this territory from the inside. For those who have carried something unnamed for years — something that only surfaces at night, when the masks get too heavy to hold.</p>
+    <blockquote class="manifesto-quote reveal">He descends.<br>She rises.</blockquote>
+    <p class="manifesto-body reveal">Neither one is the same person by the last page. This is a love story in the truest sense: two people who make each other more fully themselves.</p>
   </div>
 </section>
 
-<!-- BOOK: 8.png — cover piatta -->
 <section class="book-section">
   <div class="book-inner">
     <img class="book-img reveal" src="8.png" alt="RULES — The Descent by James Noire">
@@ -460,22 +145,17 @@
       <span class="section-tag reveal">The RULES Series — Book 1</span>
       <h2 class="book-title reveal">RULES</h2>
       <p class="book-subtitle reveal">The Descent</p>
-      <p class="book-desc reveal">
-        James has known, since he was a boy, exactly what he is. He carries no illusions. He sees the trap closing around him, understands every step of the mechanism, and still moves forward. Not because he can't stop. Because he doesn't want to.<br><br>
-        What he offers Jennifer is not surrender in the weak sense of the word. It is something rarer: a complete, conscious gift of himself.
-      </p>
+      <p class="book-desc reveal">James has known, since he was a boy, exactly what he is. He carries no illusions. He sees the trap closing around him, understands every step of the mechanism, and still moves forward. Not because he can't stop. Because he doesn't want to.<br><br>What he offers Jennifer is not surrender in the weak sense of the word. It is something rarer: a complete, conscious gift of himself.</p>
       <div class="ku-tag reveal">Free with Kindle Unlimited</div><br><br>
       <a href="https://amazon.com/author/jamesnoire" target="_blank" class="cta reveal">Read on Amazon →</a>
     </div>
   </div>
 </section>
 
-<!-- ATMOSPHERE: 11.png — hotel, lei sul letto full width -->
 <section class="atmosphere">
   <img class="atm-img" src="11.png" alt="">
 </section>
 
-<!-- SOCIAL -->
 <section class="social-section">
   <h2 class="social-title reveal">Impossible to Come Back</h2>
   <p class="social-sub reveal">Dark fiction. Raw desire. No apologies.</p>
@@ -486,7 +166,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p class="footer-name">James <span>Noire</span></p>
   <p class="footer-copy">© 2026 — All rights reserved</p>
@@ -499,32 +178,6 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 </script>
-
-<!-- HEARTBEAT BUTTON -->
-<style>
-  .heartbeat-btn {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    z-index: 9998;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.8rem;
-    opacity: 0.4;
-    transition: opacity 0.3s ease, transform 0.2s ease;
-    filter: drop-shadow(0 0 6px rgba(139,0,0,0.5));
-  }
-  .heartbeat-btn:hover { opacity: 0.9; transform: scale(1.2); }
-  .heartbeat-btn.beating {
-    opacity: 1;
-    animation: heartpulse 1s ease infinite;
-  }
-  @keyframes heartpulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.25); }
-  }
-</style>
 
 <button class="heartbeat-btn" id="heartBtn" title="Play heartbeat">♥</button>
 
